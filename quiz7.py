@@ -8,7 +8,82 @@
 # When you have made the classes, create instances of the classes and put in a list - loop through the list - 
 # and let all the animals talk! :)
 
-# class cat:
+class Animal:
+    def __init__(self):
+        self.__name = "name"
+        self.__age = 0
+        self.__food = "[food, water]"
+
+    def set_name(self, namee):
+        self.__name = namee
+
+    def get_name(self):
+        return self.__name
+        
+    def set_age(self, agee):
+        self.__age = agee
+
+    def get_age(self):
+        return self.__age
+
+    def set_food(self, foods):
+        self.food = foods
+        
+    def add_food(self, ):
+        pass
+
+    def remove_food(self):
+        pass
+
+    def talk(self):
+        print("I can talk")
+
+    def details(self):
+        print(f"I am a {self.__name} and I am {self.__age} months old")
+
+class Cat(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def talk(self):
+        print("Meow")
+
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def talk(self):
+        print("Woof")
+
+class Fish(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def talk(self):
+        print("Blub")
+
+class Cow(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def talk(self):
+        print("Moo")
+
+animals = [Cat(), Dog(), Cow(), Fish()]
+
+animals[0].set_name("cat")
+animals[1].set_name("dog")
+animals[2].set_name("cow")
+animals[3].set_name("fish")
+
+animals[0].set_age(12)
+animals[1].set_age(11)
+animals[2].set_age(10)
+animals[3].set_age(9)
+
+for animal in animals:
+    animal.details()
+    animal.talk() 
 
 # 2. The snail climbs up 7 feet each day and slips back 2 feet each night. How many days will it take the 
 # snail to get out of a well with the given depth?. Using python, write a function to solve this problem. 
@@ -145,6 +220,46 @@ print(s.pop())
 print(s.show())
 print(s.size())
 
+class Node:
+    def __init__(self, x):
+
+        stack = []
+
+        self.data = x
+        self.right = None
+        self.left = None
+
+    def POI(root):
+        while(True):
+            while(root != None):
+                stack.append(root)
+                stack.append(root)
+                root = root.left
+
+
+            if(len(stack) == 0):
+                return
+
+            root = stack.pop()
+
+            if(len(stack) > 0 and stack[-1] == root):
+                root = root.right
+            else:
+                print(root.data, end = " ")
+                root = NotImplemented
+
+if __name__ == '__main__':
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.left = Node(6)
+    root.right.left = Node(7)
+
+    print("Post order Traversal of binary tree is: ")
+    POI(root)
+
 # 8. Using list comprehension, write a program that takes a list of numbers and returns a list of the squares 
 # of the numbers.
 
@@ -214,5 +329,6 @@ def mergesort(x):
     return result
     print(result)
 
-nums = list(input("Enter list of numbers to sort: "))
-mergesort(nums)
+if __name__ == '__main__':
+    nums = [54, 56, 66, 77, 34, 23, 1]
+    mergesort(nums)
